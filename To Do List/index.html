@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Advanced To-Do List</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <main class="container" role="main" aria-labelledby="app-title">
+    <h1 id="app-title">📝 To-Do List</h1>
+
+    <section class="input-section" aria-label="Add new task">
+      <input type="text" id="task-input" placeholder="Enter a new task..." aria-label="New task" maxlength="300"/>
+      <button id="add-task" aria-label="Add task">Add Task</button>
+    </section>
+
+    <section class="stats" aria-label="Task statistics">
+      <div class="stat">
+        <div class="stat-number" id="total-tasks">0</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="active-tasks">0</div>
+        <div class="stat-label">Active</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="completed-tasks">0</div>
+        <div class="stat-label">Completed</div>
+      </div>
+    </section>
+
+    <nav class="controls" aria-label="Task filters and actions">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+      <button class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+      <button id="clear-completed">Clear Completed</button>
+      <button id="clear-all">Clear All</button>
+    </nav>
+
+    <ul id="task-list" role="list" aria-label="Tasks"></ul>
+  </main>
+
+  <div id="confirm-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="confirm-title">Please confirm</h2>
+      <p id="confirm-message"></p>
+      <div class="modal-actions">
+        <button id="confirm-yes">Yes</button>
+        <button id="confirm-no">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
