@@ -1,0 +1,266 @@
+:root {
+  --bg: #1a1a1a;
+  --panel: #2a2a2a;
+  --muted: #888;
+  --accent: #4CAF50;
+  --accent-dark: #45a049;
+  --button: #555;
+  --danger: #f44336;
+  --blue: #2196F3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+/* Input section */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #333;
+  background: var(--panel);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 16px;
+  min-height: 44px;
+  outline: none;
+}
+
+#task-input:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+/* Buttons */
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.18s ease, transform 0.08s ease;
+  min-height: 44px;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#add-task {
+  background: var(--accent);
+  color: #fff;
+}
+
+#add-task:hover {
+  background: var(--accent-dark);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  background: var(--button);
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.controls button:hover {
+  background: #666;
+}
+
+.controls button.active {
+  background: var(--accent);
+}
+
+.controls .filter-btn[aria-pressed="true"] {
+  background: var(--accent);
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--panel);
+  border-radius: 6px;
+}
+
+.stat {
+  text-align: center;
+  min-width: 60px;
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 4px;
+}
+
+/* Task list */
+#task-list {
+  list-style: none;
+  margin-top: 6px;
+  padding: 0;
+}
+
+.task-item {
+  background: var(--panel);
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.18s ease;
+}
+
+.task-item:hover {
+  background: #333;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.task-text {
+  flex: 1;
+  text-align: left;
+  word-break: break-word;
+  padding-right: 8px;
+}
+
+.task-time {
+  font-size: 11px;
+  color: var(--muted);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.task-item .edit-btn {
+  background: var(--blue);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.task-item .edit-btn:hover {
+  background: #0b7dda;
+}
+
+.task-item .delete-btn {
+  background: var(--danger);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.task-item .delete-btn:hover {
+  background: #da190b;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--panel);
+  padding: 18px;
+  border-radius: 8px;
+  width: min(420px, 92%);
+  text-align: left;
+}
+
+.modal-content h2 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+@media (max-width: 460px) {
+  .stats {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .task-time {
+    display: none;
+  }
+
+  .input-section {
+    gap: 8px;
+  }
+
+  #task-input {
+    font-size: 15px;
+  }
+
+  .task-item {
+    padding: 10px;
+  }
+}
